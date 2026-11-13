@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#16171A">
+<title>Ложка — политика конфиденциальности</title>
+<meta name="description" content="Какие данные обрабатывает приложение «Ложка» и куда они уходят: дневник хранится в телефоне, рекламы и трекеров нет.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap">
+<style>
+:root { color-scheme: light; --ember: #D9531A; --ink: #1A1D21; --frost: #F3F3F0; --card: #FFFFFF; --hair: #E7E6E1; --muted: #626770 }
+* { box-sizing: border-box }
+body { margin: 0; background: var(--frost); color: var(--ink); font: 17px/1.65 "Onest", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased }
+.wrap { max-width: 760px; margin: 0 auto; padding: 32px 20px 64px }
+a { color: var(--ember); text-underline-offset: 3px }
+.back { font-weight: 500; text-decoration: none }
+h1 { font-weight: 600; font-size: clamp(32px, 5vw, 46px); line-height: 1.08; letter-spacing: -0.04em; margin: 28px 0 10px }
+h2 { font-weight: 600; font-size: 21px; letter-spacing: -0.02em; margin: 0 0 8px }
+.date { color: var(--muted); font-size: 15px }
+.card { background: var(--card); border: 1px solid var(--hair); border-radius: 22px; padding: 24px 26px; margin-top: 16px }
+.card p, .card li { color: #3B3F46 }
+.card p + p { margin-top: 10px }
+ul { margin: 6px 0 0; padding-left: 20px }
+li + li { margin-top: 6px }
+.lead { font-size: 19px; color: var(--muted); margin-top: 6px }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="back" href="./">← Ложка</a>
+  <h1>Политика конфиденциальности</h1>
+  <p class="date">Действует с 13 ноября 2026 года, для версии 0.21.2 и новее</p>
+  <p class="lead">Коротко: дневник хранится в вашем телефоне. В Ложке нет рекламы, аналитики, трекеров и аккаунта. В интернет уходит только то, что перечислено ниже, и только по вашему действию или настройке.</p>
+
+  <section class="card">
+    <h2>Что хранится в телефоне</h2>
+    <p>Профиль (рост, вес, цель — если вы их указали), записи дневника, рецепты, меню, свои продукты, заметки и настройки. Эти данные не покидают телефон, пока вы сами не включите копию или не сохраните файл.</p>
+  </section>
+
+  <section class="card">
+    <h2>Что и куда может уходить из телефона</h2>
+    <ul>
+      <li><b>Google Диск</b> — только если вы подключили аккаунт и включили копию. Копия лежит в скрытой папке приложения на вашем Диске (доступ drive.appdata: Ложка не видит другие ваши файлы) и зашифрована вашим кодом.</li>
+      <li><b>Open Food Facts</b> — при сканировании товара, которого нет во встроенном списке, отправляется только штрихкод. Можно выключить: Настройки → «Поиск штрихкодов в Open Food Facts».</li>
+      <li><b>Страница Ложки на GitHub</b> — приложение раз за запуск проверяет файл с номером новой версии и скачивает обновление или нейросеть для фото, только когда вы нажмёте кнопку. Никаких сведений о вас не передаётся; как любой сайт, GitHub видит ваш IP-адрес.</li>
+      <li><b>Облачная оценка фото</b> — только если вы сами ввели свой ключ ИИ-сервиса (Anthropic). Тогда фото тарелки отправляется в этот сервис по вашему ключу. Без ключа фото распознаётся в телефоне и никуда не уходит.</li>
+      <li><b>Сообщение об ошибке</b> — только по кнопке. Вы видите весь текст до отправки: в нём ваше описание, версия Ложки и модель телефона.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Камера, микрофон и уведомления</h2>
+    <p>Камера включается только по вашей кнопке — для штрихкода, этикетки или фото блюда; снимки не сохраняются в галерею без вашего действия. Микрофон — только по кнопке голосового ввода; распознавание речи выполняет Android, запись Ложка не хранит. Уведомления — только те напоминания, которые вы включили.</p>
+  </section>
+
+  <section class="card">
+    <h2>Чего нет</h2>
+    <ul>
+      <li>Рекламы, рекламных идентификаторов и аналитики.</li>
+      <li>Аккаунта Ложки и сбора e-mail.</li>
+      <li>Продажи или передачи данных третьим лицам.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Как удалить данные</h2>
+    <p>В приложении: Настройки → «Удалить все мои данные». Копии на Google Диске: Настройки → «Google Диск» → «Отключить» с отметкой «Также удалить все копии из Google Диска», или в настройках самого Диска («Управление приложениями»). Удаление приложения стирает все данные в телефоне.</p>
+  </section>
+
+  <section class="card">
+    <h2>Здоровье</h2>
+    <p>Ложка — дневник и планировщик питания, а не медицинское изделие. Она не ставит диагнозы и не назначает диету. При болезнях, беременности и особой диете согласуйте питание с врачом.</p>
+  </section>
+
+  <section class="card">
+    <h2>Вопросы и изменения</h2>
+    <p>Если политика изменится, новая версия появится на этой странице с датой. Вопросы — через <a href="https://github.com/kudyakovdmitriy-rgb/lozhka/issues" target="_blank" rel="noopener">страницу проекта</a> или в приложении: Настройки → «Сообщить об ошибке».</p>
+  </section>
+</main>
+</body>
+</html>
