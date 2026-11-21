@@ -1,14 +1,15 @@
 # Ложка
 
-Дневник питания и меню на год для Android. Страница для скачивания: https://kudyakovdmitriy-rgb.github.io/lozhka/
+Дневник питания для Android: поиск, штрихкод, голос и фото, рецепты, меню и покупки. Бесплатно, без рекламы и регистрации.
+Страница для скачивания: https://kudyakovdmitriy-rgb.github.io/lozhka/
 
-Текущая версия: 0.20.0
+Текущая версия: 0.23.2 (21 ноября 2026)
 
 | Файл | SHA-256 |
 |---|---|
-| Lozhka-0.20.0-arm64.apk | ee91b871fa855ae26ac92bd8a0b9a49577874ffd49053ebef63da62c73fe2bea |
-| Lozhka-0.20.0-arm32.apk | 8bcd756238633be2387995504e75c7ab74c202a40e3b5f810b619025daa9f3af |
+| Lozhka-0.23.2-arm64.apk | 15acb45e10701012952d9853bf9d266c266a874ad7850b880d41f43ca79d828f |
+| Lozhka-0.23.2-arm32.apk | a23890388c7bcfcaf4d6e841545cb4b0711cabdf00e5ea5cbd23279eaccefa94 |
 
 Сертификат подписи (SHA-256): 190abbfe3633ab9542c68699d2b9da0382ba888eb560e3db6313a3072ff964d8
 
-`version.json` — сведения для обновления внутри приложения.
+`version.json` — сведения для обновления внутри приложения. [Политика конфиденциальности](privacy.html).
