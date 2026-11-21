@@ -57,6 +57,29 @@ section{position:relative;overflow:hidden}
 .c-honey .lead,.c-leaf .lead,.c-berry .lead,.c-ember .lead{color:rgba(20,22,26,.82)}
 .c-dusk .lead,.c-ink .lead{color:rgba(255,255,255,.84)}
 
+@font-face{font-family:"Plex";font-style:normal;font-display:swap;font-weight:400;src:url(fonts/ibm-plex-mono-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0400-045F}
+@font-face{font-family:"Plex";font-style:normal;font-display:swap;font-weight:400;src:url(fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2248,U+00D7,U+00F7}
+@font-face{font-family:"Plex";font-style:normal;font-display:swap;font-weight:700;src:url(fonts/ibm-plex-mono-cyrillic-700-normal.woff2) format("woff2");unicode-range:U+0400-045F}
+@font-face{font-family:"Plex";font-style:normal;font-display:swap;font-weight:700;src:url(fonts/ibm-plex-mono-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2248,U+00D7,U+00F7}
+/* чек — главный герой кампании «Чек, пожалуйста.» */
+.tk{position:relative;background:#FBFAF6;color:#17181B;font:400 var(--fs,15px)/1.4 "Plex",ui-monospace,monospace;padding:1.8em 1.7em 1.6em;box-shadow:0 40px 80px -36px rgba(0,0,0,.6)}
+.tk::after{content:"";position:absolute;left:0;right:0;bottom:-12px;height:12px;background:linear-gradient(-45deg,transparent 8px,#FBFAF6 0) 0 0/16px 12px,linear-gradient(45deg,transparent 8px,#FBFAF6 0) 0 0/16px 12px}
+.tk .hd{text-align:center;padding-bottom:.7em;border-bottom:2px dashed #C9C8C1;margin-bottom:.6em}
+.tk .hd b{display:flex;justify-content:center;align-items:center;gap:.4em;font:800 1.3em/1.1 var(--d);letter-spacing:-.03em}
+.tk .hd b svg{width:1.2em;height:1.2em}
+.tk .hd span{display:block;font-size:.8em;color:#5E6168;margin-top:.35em;letter-spacing:.04em}
+.tk .ln{display:flex;justify-content:space-between;align-items:baseline;gap:1em;padding:.25em 0}
+.tk .ln small{display:block;color:#5E6168;font-size:.84em}
+.tk .ln em{font-style:normal;font-weight:700;white-space:nowrap}
+.tk .dt{flex:1;border-bottom:2px dotted #B9B8B1;transform:translateY(-.3em)}
+.tk .sum{border-top:2px dashed #C9C8C1;margin-top:.5em;padding-top:.7em}
+.tk .tot{display:flex;justify-content:space-between;align-items:baseline;gap:1em;margin-top:.2em;white-space:nowrap}
+.tk .tot b{font:800 1.8em/1 var(--d);letter-spacing:-.05em;color:#C2410C}
+.tk .ft{margin-top:.9em;text-align:center;font-size:.8em;color:#5E6168}
+.tk .bc{height:2.2em;margin:.8em auto 0;width:66%;background:repeating-linear-gradient(90deg,#17181B 0 2px,transparent 2px 4px,#17181B 4px 7px,transparent 7px 9px,#17181B 9px 10px,transparent 10px 13px)}
+.slot{position:absolute;height:34px;border-radius:17px;background:#0B0C0E;box-shadow:inset 0 -7px 0 #2B2D31;z-index:2}
+.rubric{display:inline-flex;align-items:center;padding:9px 16px;border-radius:999px;background:var(--dark);color:#fff;font:700 14px/1 var(--f);margin-bottom:18px}
+
 /* кнопки */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:0 30px;border-radius:999px;font:700 19px/1 var(--f);text-decoration:none;border:0;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease}
 .btn .ico{width:21px;height:21px}
@@ -104,9 +127,11 @@ section{position:relative;overflow:hidden}
 .trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin:26px 0 0;padding:0;list-style:none;font-weight:700;font-size:16px}
 .trust li{display:flex;align-items:center;gap:8px}
 .fine{margin-top:14px;font-size:14px;opacity:.78}
-.stage{position:relative;height:640px;display:grid;place-items:center}
+.stage{position:relative;height:760px;display:grid;place-items:start center}
+.hero-tk{--fs:15.5px;width:min(420px,92%);margin-top:28px;rotate:-2.5deg;transform-origin:top center;z-index:1}
+.stage .slot{left:50%;translate:-50% 0;top:10px;width:min(480px,100%)}
 .stage .phone{--w:290px;z-index:1}
-.stage .p1{--p:230px;--r:-14deg;left:0;bottom:30px}
+.stage .p1{--p:220px;--r:-12deg;right:0;bottom:0;z-index:2}
 .stage .p2{--p:170px;--r:10deg;right:0;top:20px}
 .stage .s1{left:2%;top:26%;--r:-6deg}
 .stage .s2{right:0;bottom:22%;--r:5deg}
@@ -114,7 +139,8 @@ section{position:relative;overflow:hidden}
 @media (prefers-reduced-motion:no-preference){
   .hero .rv{animation:up .8s cubic-bezier(.2,.75,.2,1) both}
   .hero .rv:nth-child(2){animation-delay:.07s}.hero .rv:nth-child(3){animation-delay:.14s}.hero .rv:nth-child(4){animation-delay:.21s}.hero .rv:nth-child(5){animation-delay:.28s}
-  .stage .phone{animation:rise 1s cubic-bezier(.2,.75,.2,1) .1s both}
+  .hero-tk{animation:tprint 1.4s cubic-bezier(.3,.7,.2,1) .2s both}
+  @keyframes tprint{from{clip-path:inset(0 0 100% 0);translate:0 -260px}to{clip-path:inset(0 0 -20px 0);translate:0 0}}
   .stage .plate{animation:spin .9s cubic-bezier(.2,.8,.2,1) both,float 6s ease-in-out 1s infinite alternate}
   .stage .p2{animation-delay:.15s,1.2s}
   .stage .stk{animation:pop .6s cubic-bezier(.2,.9,.3,1.3) both}.stage .s1{animation-delay:.6s}.stage .s2{animation-delay:.8s}
@@ -124,9 +150,8 @@ section{position:relative;overflow:hidden}
   @keyframes spin{from{opacity:0;rotate:-160deg;scale:.4}}
   @keyframes float{to{translate:0 -14px}}
 }
-@media (max-width:940px){.hero .grid{grid-template-columns:1fr;min-height:0;padding-top:20px}.stage{height:560px}}
-@media (max-width:520px){.stage{height:500px}.stage .phone{--w:236px}.stage .p1{--p:150px;left:-10px;bottom:10px}.stage .p2{--p:120px;right:-6px;top:0}
-  .stage .s1{left:0;top:8%}.stage .s2{right:0;bottom:8%}.stage .doodle{display:none}.stk{font-size:14px;padding:10px 14px}.stk b{font-size:17px}}
+@media (max-width:940px){.hero .grid{grid-template-columns:1fr;min-height:0;padding-top:20px}.stage{height:740px}.stage .p1{--p:180px;right:4%;bottom:-10px}}
+@media (max-width:520px){.stage{height:580px}.hero-tk{--fs:13px}.stage .p1{--p:130px;right:-16px;bottom:0}.stk{font-size:14px;padding:10px 14px}.stk b{font-size:17px}}
 
 /* лента тарелок */
 .belt{padding:40px 0;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
@@ -147,6 +172,15 @@ section{position:relative;overflow:hidden}
 @media (max-width:980px){.steps4{grid-template-columns:repeat(4,78%);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;margin-inline:-20px;padding-inline:20px;scrollbar-width:none}
   .st{scroll-snap-align:start}}
 @media (min-width:600px) and (max-width:980px){.steps4{grid-template-columns:repeat(4,44%)}}
+
+/* рубрика «Мерьте ложками» */
+.units{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.unit{border-radius:32px;padding:26px;min-height:380px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;position:relative;overflow:hidden}
+.unit .ill{position:absolute;left:0;right:0;top:20px;height:230px}
+.unit .ill svg{position:absolute}
+.unit b{font:800 clamp(22px,2.2vw,28px)/1.1 var(--d);letter-spacing:-.04em}
+.unit span{font-size:15.5px;opacity:.85}
+@media (max-width:860px){.units{grid-template-columns:1fr}.unit{min-height:320px}}
 
 /* способы — вкладки */
 .ways{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);align-items:center}
@@ -219,6 +253,14 @@ section{position:relative;overflow:hidden}
 @media (max-width:900px){.nums{grid-template-columns:1fr 1fr}}
 @media (max-width:420px){.num{padding:22px 18px;min-height:170px}}
 
+/* что внутри — чеком */
+.inside{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
+.inside .head{margin-bottom:0}
+.in-tk{position:relative;padding-top:18px}
+.in-tk .slot{left:-4%;right:-4%;top:0}
+.in-tk .tk{rotate:1.5deg}
+@media (max-width:900px){.inside{grid-template-columns:1fr}}
+
 /* рецепты */
 .bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;gap:14px}
 .tile{position:relative;margin:0;border-radius:28px;overflow:hidden;background:#fff}
@@ -262,8 +304,8 @@ section{position:relative;overflow:hidden}
 .final h2{font-size:clamp(38px,7vw,96px)}
 .final .lead{margin:22px auto 0}
 .final .cta{justify-content:center}
-.final .plate{--p:clamp(110px,16vw,220px)}
-.final .q1{left:-40px;top:30px;--r:-12deg}.final .q2{right:-40px;top:70px;--r:9deg}.final .q3{left:-110px;bottom:60px;--r:6deg}.final .q4{right:-110px;bottom:40px;--r:-8deg}
+.final .plate{--p:clamp(100px,12vw,170px)}
+.final .q1{left:-30px;top:10px;--r:-12deg}.final .q2{right:-30px;top:20px;--r:9deg}.final .q3{left:-110px;bottom:60px;--r:6deg}.final .q4{right:-110px;bottom:40px;--r:-8deg}
 .inst{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:64px 0 0;padding:0;list-style:none;text-align:left;counter-reset:s;z-index:1}
 .inst li{counter-increment:s;background:#fff;border-radius:28px;padding:24px;color:var(--dark);box-shadow:0 20px 40px -26px rgba(20,22,26,.5)}
 .inst li::before{content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--dark);color:#fff;font:800 18px/1 var(--d);margin-bottom:16px}
@@ -272,7 +314,7 @@ section{position:relative;overflow:hidden}
 .final .wrap{position:relative;z-index:1}
 @media (max-width:1300px){.final .q3,.final .q4{display:none}}
 @media (max-width:860px){.inst{grid-template-columns:1fr}}
-@media (max-width:520px){.final .q1{left:-30px;top:20px}.final .q2{right:-30px;top:40px}}
+@media (max-width:520px){.final{padding-top:170px}.final .plate{--p:100px}.final .q1{left:-24px;top:16px}.final .q2{right:-24px;top:30px}}
 
 /* подробности */
 .more2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px)}
@@ -313,24 +355,31 @@ footer a{color:#fff}
   <div class="wrap grid">
     <div>
       <a class="news rv" href="#more"><b>Новое</b>Версия 0.23.3: легче читать, удобнее нажимать</a>
-      <h1 class="rv">Дневник питания, которому можно верить</h1>
-      <p class="lead rv">Найдите блюдо, отсканируйте штрихкод или скажите вслух — Ложка посчитает калории и покажет, откуда взялась каждая цифра.</p>
+      <h1 class="rv">Чек, пожалуйста.</h1>
+      <p class="lead rv">Ложка — дневник питания, где у каждой калории есть чек: продукт, граммы и откуда взялась цифра. Найдите блюдо, отсканируйте штрихкод или скажите вслух.</p>
       <div class="cta rv">
         <a class="btn btn-dark" href="Lozhka-0.23.3-arm64.apk"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>Скачать для Android</a>
-        <a class="btn btn-line" href="#steps">Как это работает</a>
+        <a class="btn btn-line" href="#check">Посмотреть чек</a>
       </div>
       <div class="rv">
         <ul class="trust"><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Бесплатно</li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Без рекламы</li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Без регистрации</li></ul>
         <p class="fine">Версия 0.23.3 от 21 ноября 2026 · Android 7 и новее · 59 МБ. Для старых 32-битных телефонов — <a href="Lozhka-0.23.3-arm32.apk">другой файл</a>.</p>
       </div>
     </div>
-    <div class="stage" aria-hidden="true">
-      <div class="plate p1"><img src="img/plate/toast.webp" alt="" width="400" height="400"></div>
-      <div class="plate p2"><img src="img/plate/tomato.webp" alt="" width="400" height="400"></div>
-      <svg class="doodle" viewBox="0 0 120 80"><path d="M6 70 C 30 20, 70 10, 112 26"/><path d="M92 8 L113 26 L90 42"/></svg>
-      <div class="phone tilt-r" style="--sh:rgba(120,70,0,.5)"><img src="img/scr/today.webp" alt="" width="720" height="1560" fetchpriority="high"></div>
-      <div class="stk s1"><b>≈ 106 г</b>2 яйца С1</div>
-      <div class="stk s2"><b>6 864</b>штрихкодов в телефоне</div>
+    <div class="stage">
+      <div class="plate p1" aria-hidden="true"><img src="img/plate/r-lib-012.webp" alt="" width="300" height="300"></div>
+      <div class="slot" aria-hidden="true"></div>
+      <div class="tk hero-tk" aria-label="Чек расчёта: плов домашний, 515 ккал на порцию">
+        <div class="hd"><b><svg viewBox="20 20 68 68" aria-hidden="true"><path fill="#14161A" d="M71.82,48.25 L71.06,49.15 L70.25,50.00 L69.38,50.78 L68.48,51.50 L67.53,52.14 L66.55,52.70 L65.55,53.18 L64.54,53.58 L63.52,53.88 L62.49,54.09 L61.48,54.21 L60.48,54.23 L59.51,54.16 L58.56,53.99 L57.66,53.73 L56.79,53.38 L55.98,52.95 L55.23,52.42 L54.54,51.82 L53.92,51.14 L53.37,50.39 L52.90,49.57 L52.51,48.70 L52.21,47.77 L51.99,46.79 L51.86,45.78 L51.82,44.74 L51.86,43.67 L52.00,42.59 L52.22,41.51 L52.53,40.42 L52.92,39.35 L53.40,38.30 L53.95,37.27 L54.58,36.27 L55.27,35.32 L56.02,34.42 L56.84,33.57 L57.70,32.79 L58.61,32.07 L59.56,31.43 L60.53,30.87 L61.53,30.39 L62.55,30.00 L63.57,29.69 L64.59,29.48 L65.61,29.36 L66.60,29.34 L67.58,29.41 L68.52,29.58 L69.43,29.84 L70.29,30.19 L71.10,30.62 L71.85,31.15 L72.54,31.75 L73.16,32.43 L73.71,33.18 L74.18,34.00 L74.57,34.88 L74.88,35.81 L75.10,36.78 L75.23,37.79 L75.27,38.83 L75.22,39.90 L75.09,40.98 L74.86,42.07 L74.55,43.15 L74.16,44.22 L73.69,45.28 L73.13,46.30 L72.51,47.30 Z M60.27,48.65 L59.59,49.54 L58.92,50.44 L58.24,51.34 L57.58,52.24 L56.91,53.15 L56.25,54.05 L55.58,54.96 L54.92,55.87 L54.26,56.78 L53.61,57.69 L52.95,58.60 L52.30,59.51 L51.64,60.43 L50.99,61.34 L50.34,62.26 L49.69,63.18 L49.04,64.09 L48.39,65.01 L47.74,65.93 L47.10,66.85 L46.45,67.77 L45.81,68.69 L45.16,69.61 L44.52,70.53 L43.88,71.46 L43.24,72.38 L42.60,73.31 L41.96,74.23 L41.32,75.16 L40.68,76.08 L40.68,76.08 L40.26,76.52 L39.77,76.87 L39.21,77.12 L38.62,77.25 L38.01,77.26 L37.41,77.16 L36.84,76.94 L36.33,76.62 L35.89,76.20 L35.54,75.70 L35.29,75.14 L35.16,74.55 L35.15,73.94 L35.25,73.34 L35.47,72.78 L35.80,72.26 L35.80,72.26 L36.54,71.42 L37.28,70.58 L38.03,69.73 L38.77,68.89 L39.51,68.04 L40.25,67.20 L40.99,66.35 L41.73,65.50 L42.47,64.65 L43.20,63.81 L43.94,62.96 L44.67,62.11 L45.41,61.26 L46.14,60.40 L46.87,59.55 L47.60,58.70 L48.33,57.84 L49.06,56.99 L49.79,56.13 L50.52,55.27 L51.24,54.42 L51.96,53.56 L52.68,52.70 L53.40,51.83 L54.12,50.97 L54.84,50.11 L55.55,49.24 L56.26,48.37 L56.97,47.50 L57.67,46.62 Z"/></svg>Ложка</b><span>ЧЕК РАСЧЁТА · ПЛОВ ДОМАШНИЙ</span></div>
+        <div class="ln"><div>Рис длиннозёрный, сухой<small>300 г × 365 / 100 г</small></div><em>1095</em></div>
+        <div class="ln"><div>Куриная грудка, сырая<small>400 г × 120 / 100 г</small></div><em>480</em></div>
+        <div class="ln"><div>Морковь сырая<small>200 г × 41 / 100 г</small></div><em>82</em></div>
+        <div class="ln"><div>Масло подсолнечное<small>34 г × 884 / 100 г</small></div><em>301</em></div>
+        <div class="ln"><div>Сметана 20 %<small>50 г × 204 / 100 г</small></div><em>102</em></div>
+        <div class="ln sum"><div>Всё блюдо</div><em>2060</em></div>
+        <div class="tot"><span>НА ПОРЦИЮ ÷ 4</span><b>515 ккал</b></div>
+        <p class="ft">ИСТОЧНИК: USDA FoodData Central</p>
+      </div>
     </div>
   </div>
 </section>
@@ -340,8 +389,8 @@ footer a{color:#fff}
 <section class="pad c-mist" id="steps">
   <div class="wrap">
     <div class="head">
-      <h2>2 яйца на завтрак — 4 касания</h2>
-      <p class="lead">Без весов: Ложка знает типовую массу яйца, ложки сметаны и стакана молока.</p>
+      <h2>Чек на завтрак — за 4 касания</h2>
+      <p class="lead">2 яйца — «+», первый результат, мера «яйцо С1», «Добавить». И в дневнике чек: 2 × яйцо С1 ≈ 106 г, 152 ккал.</p>
     </div>
     <div class="steps4">
       <div class="st c-honey"><span class="n">1</span><h3>«+» у завтрака</h3><div class="phone newbie"><img src="img/scr/t1-1.webp" alt="Экран «Сегодня», кнопка «+» у завтрака" width="540" height="1110" loading="lazy"></div></div>
@@ -353,7 +402,20 @@ footer a{color:#fff}
   </div>
 </section>
 
-<section class="pad" id="ways">
+
+<section class="pad" id="spoons">
+  <div class="wrap">
+    <div class="head"><span class="rubric">Мерьте ложками</span><h2>Весов нет? Считайте привычными мерами</h2>
+      <p class="lead">Яйцо, ложка сметаны, стакан молока — Ложка переведёт в граммы по типовой массе и честно поставит «≈». Взвесили — введите граммы, и «≈» исчезнет.</p></div>
+    <div class="units">
+      <div class="unit c-honey"><div class="ill"><svg viewBox="0 0 100 124" aria-hidden="true" style="left:calc(50% - 150px);top:10px;width:140px;rotate:-10deg"><ellipse cx="50" cy="119" rx="34" ry="5" fill="rgba(0,0,0,.18)"/><path d="M50 4C76 4 94 52 94 76c0 26-19 42-44 42S6 102 6 76C6 52 24 4 50 4z" fill="#FFF6E6"/><path d="M94 76c0 26-19 42-44 42 18-8 30-24 30-44 0-22-10-46-22-62 20 8 36 44 36 64z" fill="rgba(170,110,30,.14)"/><path d="M29 32c-8 12-12 26-11 38" stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none"/></svg><svg viewBox="0 0 100 124" aria-hidden="true" style="left:calc(50% + 10px);top:24px;width:140px;rotate:12deg"><ellipse cx="50" cy="119" rx="34" ry="5" fill="rgba(0,0,0,.18)"/><path d="M50 4C76 4 94 52 94 76c0 26-19 42-44 42S6 102 6 76C6 52 24 4 50 4z" fill="#FFF6E6"/><path d="M94 76c0 26-19 42-44 42 18-8 30-24 30-44 0-22-10-46-22-62 20 8 36 44 36 64z" fill="rgba(170,110,30,.14)"/><path d="M29 32c-8 12-12 26-11 38" stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none"/></svg></div><b>2 яйца С1 ≈ 106 г</b><span>Типовая масса по ГОСТ</span></div>
+      <div class="unit c-berry"><div class="ill"><svg viewBox="0 0 100 260" aria-hidden="true" style="left:calc(50% - 120px);top:0;width:76px;rotate:-24deg"><defs><linearGradient id="sg1" x1="0" x2="1"><stop offset="0" stop-color="#F7F8FA"/><stop offset=".55" stop-color="#CDD1D7"/><stop offset="1" stop-color="#959BA4"/></linearGradient></defs><ellipse cx="50" cy="60" rx="40" ry="54" fill="url(#sg1)"/><ellipse cx="50" cy="62" rx="32" ry="44" fill="#B6BBC3"/><path d="M26 60c0-17 11-29 24-29s24 12 24 29c0 12-11 20-24 20S26 72 26 60z" fill="#FFFDF6"/><path d="M38 42c6-6 15-6 20 1" stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M43 110 Q50 122 57 110 L60 246 Q50 258 40 246Z" fill="url(#sg1)"/></svg><svg viewBox="0 0 100 260" aria-hidden="true" style="left:calc(50% + 30px);top:-6px;width:76px;rotate:16deg"><defs><linearGradient id="sg2" x1="0" x2="1"><stop offset="0" stop-color="#F7F8FA"/><stop offset=".55" stop-color="#CDD1D7"/><stop offset="1" stop-color="#959BA4"/></linearGradient></defs><ellipse cx="50" cy="60" rx="40" ry="54" fill="url(#sg2)"/><ellipse cx="50" cy="62" rx="32" ry="44" fill="#B6BBC3"/><path d="M26 60c0-17 11-29 24-29s24 12 24 29c0 12-11 20-24 20S26 72 26 60z" fill="#FFFDF6"/><path d="M38 42c6-6 15-6 20 1" stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M43 110 Q50 122 57 110 L60 246 Q50 258 40 246Z" fill="url(#sg2)"/></svg></div><b>2 ложки сметаны ≈ 50 г</b><span>10 % — 58 ккал, 20 % — 102 ккал</span></div>
+      <div class="unit c-dusk"><div class="ill"><svg viewBox="0 0 100 140" aria-hidden="true" style="left:calc(50% - 60px);top:20px;width:120px"><path d="M12 6h76l-9 126H21z" fill="rgba(255,255,255,.25)" stroke="#fff" stroke-width="4" stroke-linejoin="round"/><path d="M17.5 42h65l-6.4 86H23.9z" fill="#FFFFFF"/><path d="M24 14l4 50" stroke="rgba(255,255,255,.7)" stroke-width="5" stroke-linecap="round"/></svg></div><b>1 стакан = 240 мл</b><span>Мера из справочника USDA</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad c-mist" id="ways">
   <div class="wrap">
     <div class="head">
       <h2>Четыре способа записать еду</h2>
@@ -416,14 +478,21 @@ footer a{color:#fff}
   </div>
 </section>
 
-<section class="pad">
-  <div class="wrap">
-    <div class="head"><h2>Всё уже внутри</h2><p class="lead">Справочник, товары и рецепты лежат в самом приложении — поиск работает даже в самолёте.</p></div>
-    <div class="nums">
-      <div class="num c-honey"><b data-n="1827">1 827</b><span>продуктов в справочнике</span></div>
-      <div class="num c-leaf"><b data-n="6864">6 864</b><span>товаров со штрихкодом</span></div>
-      <div class="num c-berry"><b data-n="464">464</b><span>рецептов с калориями на порцию</span></div>
-      <div class="num c-dusk"><b>0</b><span>рекламы, подписок и регистрации</span></div>
+<section class="pad c-leaf" id="inside">
+  <div class="wrap inside">
+    <div class="head"><h2>Что внутри Ложки</h2><p class="lead">Справочник, товары и рецепты лежат в самом приложении — поиск работает даже в самолёте.</p></div>
+    <div class="in-tk">
+      <div class="slot" aria-hidden="true"></div>
+      <div class="tk" style="--fs:clamp(14px,1.6vw,19px)">
+        <div class="hd"><b><svg viewBox="20 20 68 68" aria-hidden="true"><path fill="#14161A" d="M71.82,48.25 L71.06,49.15 L70.25,50.00 L69.38,50.78 L68.48,51.50 L67.53,52.14 L66.55,52.70 L65.55,53.18 L64.54,53.58 L63.52,53.88 L62.49,54.09 L61.48,54.21 L60.48,54.23 L59.51,54.16 L58.56,53.99 L57.66,53.73 L56.79,53.38 L55.98,52.95 L55.23,52.42 L54.54,51.82 L53.92,51.14 L53.37,50.39 L52.90,49.57 L52.51,48.70 L52.21,47.77 L51.99,46.79 L51.86,45.78 L51.82,44.74 L51.86,43.67 L52.00,42.59 L52.22,41.51 L52.53,40.42 L52.92,39.35 L53.40,38.30 L53.95,37.27 L54.58,36.27 L55.27,35.32 L56.02,34.42 L56.84,33.57 L57.70,32.79 L58.61,32.07 L59.56,31.43 L60.53,30.87 L61.53,30.39 L62.55,30.00 L63.57,29.69 L64.59,29.48 L65.61,29.36 L66.60,29.34 L67.58,29.41 L68.52,29.58 L69.43,29.84 L70.29,30.19 L71.10,30.62 L71.85,31.15 L72.54,31.75 L73.16,32.43 L73.71,33.18 L74.18,34.00 L74.57,34.88 L74.88,35.81 L75.10,36.78 L75.23,37.79 L75.27,38.83 L75.22,39.90 L75.09,40.98 L74.86,42.07 L74.55,43.15 L74.16,44.22 L73.69,45.28 L73.13,46.30 L72.51,47.30 Z M60.27,48.65 L59.59,49.54 L58.92,50.44 L58.24,51.34 L57.58,52.24 L56.91,53.15 L56.25,54.05 L55.58,54.96 L54.92,55.87 L54.26,56.78 L53.61,57.69 L52.95,58.60 L52.30,59.51 L51.64,60.43 L50.99,61.34 L50.34,62.26 L49.69,63.18 L49.04,64.09 L48.39,65.01 L47.74,65.93 L47.10,66.85 L46.45,67.77 L45.81,68.69 L45.16,69.61 L44.52,70.53 L43.88,71.46 L43.24,72.38 L42.60,73.31 L41.96,74.23 L41.32,75.16 L40.68,76.08 L40.68,76.08 L40.26,76.52 L39.77,76.87 L39.21,77.12 L38.62,77.25 L38.01,77.26 L37.41,77.16 L36.84,76.94 L36.33,76.62 L35.89,76.20 L35.54,75.70 L35.29,75.14 L35.16,74.55 L35.15,73.94 L35.25,73.34 L35.47,72.78 L35.80,72.26 L35.80,72.26 L36.54,71.42 L37.28,70.58 L38.03,69.73 L38.77,68.89 L39.51,68.04 L40.25,67.20 L40.99,66.35 L41.73,65.50 L42.47,64.65 L43.20,63.81 L43.94,62.96 L44.67,62.11 L45.41,61.26 L46.14,60.40 L46.87,59.55 L47.60,58.70 L48.33,57.84 L49.06,56.99 L49.79,56.13 L50.52,55.27 L51.24,54.42 L51.96,53.56 L52.68,52.70 L53.40,51.83 L54.12,50.97 L54.84,50.11 L55.55,49.24 L56.26,48.37 L56.97,47.50 L57.67,46.62 Z"/></svg>Ложка</b><span>ВСЁ УЖЕ В ТЕЛЕФОНЕ</span></div>
+        <div class="ln"><div>Продуктов</div><span class="dt"></span><em data-n="1827">1 827</em></div>
+        <div class="ln"><div>Товаров со штрихкодом</div><span class="dt"></span><em data-n="6864">6 864</em></div>
+        <div class="ln"><div>Рецептов</div><span class="dt"></span><em data-n="464">464</em></div>
+        <div class="ln"><div>Рекламы</div><span class="dt"></span><em>0</em></div>
+        <div class="ln"><div>Регистрации</div><span class="dt"></span><em>0</em></div>
+        <div class="tot sum"><span>ИТОГО</span><b>бесплатно</b></div>
+        <div class="bc"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -485,8 +554,8 @@ footer a{color:#fff}
   <div class="plate q3" aria-hidden="true"><img src="img/plate/mandarin.webp" alt="" width="400" height="400" loading="lazy"></div>
   <div class="plate q4" aria-hidden="true"><img src="img/plate/granola.webp" alt="" width="400" height="400" loading="lazy"></div>
   <div class="wrap">
-    <h2>Бесплатно. Без рекламы. Без регистрации.</h2>
-    <p class="lead">Установка — три шага.</p>
+    <h2>Чек, пожалуйста.</h2>
+    <p class="lead">Бесплатно. Без рекламы. Без регистрации. Установка — три шага.</p>
     <div class="cta">
       <a class="btn btn-dark" href="Lozhka-0.23.3-arm64.apk"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>Скачать для Android</a>
       <a class="btn btn-line" href="Lozhka-0.23.3-arm32.apk">Для 32-битных телефонов</a>
@@ -563,7 +632,7 @@ footer a{color:#fff}
     if(still)return;var n=+el.dataset.n,t0=performance.now();
     (function step(t){var p=Math.min(1,(t-t0)/1400),v=Math.round(n*(1-Math.pow(1-p,3)));el.textContent=String(v).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0');if(p<1)requestAnimationFrame(step)})(t0)})},{threshold:.2});
   io.observe(document.querySelector('.check'));
-  document.querySelectorAll('.num b[data-n]').forEach(function(b){io.observe(b)});
+  document.querySelectorAll('[data-n]').forEach(function(b){io.observe(b)});
 })();
 </script>
 
