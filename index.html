@@ -417,6 +417,11 @@ details .body{margin:0 0 16px}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--muted:#9297A0}}
 /* способы записи на телефоне: компактнее */
 @media (max-width:900px){.tab{grid-template-columns:44px 1fr}.tab .badge{width:44px;height:44px;grid-row:auto;border-radius:14px}.tab[aria-selected="true"]{box-shadow:0 0 0 1.5px var(--line)}}
+/* «Каждый день»: пара телефонов уже и дальше от текста, ступенька мягче */
+.daily{gap:clamp(40px,8vw,120px)}
+.daily .duo{max-width:480px;margin-inline:0 auto;padding-bottom:0}
+.daily .duo .phone:last-child{margin-top:12cqw}
+@media (max-width:900px){.daily .duo{margin-inline:auto}}
 </style>
 </head>
 <body>
